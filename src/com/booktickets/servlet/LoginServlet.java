@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		user.setUsername(request.getParameter("username"));
 		user.setPassword(request.getParameter("password"));
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		System.out.println("Username is :" + user.getUsername());
 		System.out.println("Password is :" + user.getPassword());
 
@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 			ResultSet rs	= stmt.executeQuery("SELECT * FROM LOGININFO WHERE USERNAME ='"+user.getUsername()+"'AND PASSWORD='"+user.getPassword()+"';");
 			System.out.println(rs.toString());
 			System.out.println("Login Successful!");
-			//response.sendRedirect(".//SelectMovie.html");
+			response.sendRedirect(".//index.html");
 			
 		} catch (Exception e) {
 
