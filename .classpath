@@ -15,5 +15,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="D:/UCM Study Material/Java/apache-tomcat-9.0.33-windows-x64/apache-tomcat-9.0.33/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/UCM Study Material/Java/jar_files/taglibs-standard-1.2.5-source-release.zip"/>
+	<classpathentry kind="lib" path="D:/UCM Study Material/Java/jar_files/jstl-api-1.2-sources.jar/jstl-api-1.2-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

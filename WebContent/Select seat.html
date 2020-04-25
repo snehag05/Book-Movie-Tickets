@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Form</title>
+        <link rel="stylesheet" type="text/css" href="css/global.css">
+    </head>
+    <body>
+    <FORM ACTION="LoginServlet" METHOD="POST">
+        <div class="slider">
+            <div class="load">
+
+            </div>
+            <div class="form-container">
+                <table>
+                    <h2>Book Ticket</h2>
+                    <tr><td>Name:</td><td> <input type="text" name="Name"></td></tr>
+                    <tr><td>Movie Title:</td><td> <input type="text" name="Movie_Title"></td></tr>
+                    <tr><td>Screen Number:</td><td> <input type="text" name="Screen_No"></td></tr>
+                    <tr><td>Select seat</td><td>
+                    <select id = "seats">
+                        <option value = "1">1</option>
+                        <option value = "2">2</option>
+                        <option value = "3">3</option>
+                        <option value = "4">4</option>
+                        <option value = "5">5</option>
+                        <option value = "6">6</option>
+                        <option value = "7">7</option>
+                        <option value = "8">8</option>
+                        <option value = "9">9</option>
+                        <option value = "10">10</option>
+                      </select></td></tr>
+                    
+                    <tr><td>Price:</td><td> <input type="text" name="username"></td></tr>
+                    <tr></tr>
+                    
+                    <tr><td colspan="2"><input type="Submit" class="button" name="Book" value="Book"></td></tr>
+                </table>
+            </div>
+        </div>
+       </FORM> 
+    </body>
+</html>
