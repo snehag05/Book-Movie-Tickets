@@ -17,7 +17,7 @@
         </HEAD>
 		
         <BODY>
-            <form action=MoviesServlet METHOD="POST" >
+            <form action=MoviesServlet METHOD="POST">
                 <center>
                     <div class="title">
                         <h1>This week on screen</h1>
@@ -39,7 +39,7 @@ else{
             out.println("<td>"+movies.get(index).getMovieTitle()+"</td>");
             out.println("<td>"+movies.get(index).getPrice()+"</td>"); %>
   <td><img src="<%=movies.get(index).getImage()%>" width="50" height="50"/></td>
-  <td><button class="button" type="submit" onclick="<% session.setAttribute("movie_id",movies.get(index).getMovie_id());%>">Book ticket</button></td>          
+  <td><button class="button" type="submit" name ="book" value="<%=movies.get(index).getMovie_id()%>">Book ticket</button></td>          
   <td><iframe width="150" height="70" src="<%=movies.get(index).getTrailer() %>
            " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </td>

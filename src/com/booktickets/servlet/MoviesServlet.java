@@ -29,8 +29,10 @@ public class MoviesServlet extends HttpServlet{
 			throws ServletException, IOException {
 		
 		HttpSession session=request.getSession();
-		System.out.println(session.getAttribute("movie_id"));
-		response.sendRedirect(".//Select seat.html");
+		int movie_id = Integer.parseInt(request.getParameter("book"));
+		System.out.println(request.getParameter("book"));
+		session.setAttribute("movie_id",movie_id);
+		response.sendRedirect(".//Select seat.jsp");
 				}
 
 	}
