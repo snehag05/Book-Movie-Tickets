@@ -59,7 +59,7 @@ public class MovieDetails {
 
 //set() method for all variables
 	
-	public void ssetMovie_id(int movie_id) {
+	public void setMovie_id(int movie_id) {
 		 this.movie_id=movie_id;
 	}
 
