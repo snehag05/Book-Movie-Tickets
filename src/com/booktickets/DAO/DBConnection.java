@@ -92,6 +92,33 @@ public class DBConnection {
 		}
 	
 	
-	
+		public ArrayList<ScreenDetails> loadScreens(HttpSession session){
+			
+ArrayList<ScreenDetails> arraylist= new ArrayList<ScreenDetails>();
+			
+			try
+			{
+				stmt = con.createStatement();
+				rs	= stmt.executeQuery("SELECT * FROM SCREEN_DETAILS WHERE SCREEN_NO IN "
+						+ "(SELECT SCREEN_NO FROM MOVIE_DETAILS WHERE MOVIE_ID =" +session.getAttribute("movie_id")+");");
+				System.out.println("SELECT * FROM SCREEN_DETAILS WHERE SCREEN_NO IN "
+						+ "(SELECT SCREEN_NO FROM MOVIE_DETAILS WHERE MOVIE_ID =" +session.getAttribute("movie_id")+");");
+				while(rs.next()){
+					arraylist.add(new ScreenDetails(rs.getInt("screen_no"),rs.getInt("seat_no"),rs.getBoolean("booked")));
+					
+				}
+				
+					
+				session.setAttribute("Seats",arraylist);
+				
+			}
+			catch(Exception e)
+			{
+				System.err.println(e.getMessage());
+			}
+			return arraylist;
+			
+			 
+		}
 	
 }

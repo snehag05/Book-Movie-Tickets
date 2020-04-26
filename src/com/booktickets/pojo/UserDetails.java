@@ -67,7 +67,7 @@ public class UserDetails {
 		//overriding toString() method
 	public String toString()
 	{
-		return "Username:"+this.username+" Email: "+this.email+" Phone: "+this.phone;
+		return username;
 	}
 	
 }
