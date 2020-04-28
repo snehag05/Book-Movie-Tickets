@@ -11,13 +11,41 @@
     <title>Select your seats</title>
 </head>
 <body>
+<div class=main>
 <FORM ACTION="SelectSeat" METHOD="POST">
 <center>
+<div class=top>
     <div class="title">
         <h1>Select your seats</h1>
-        <p><%="Hello "+session.getAttribute("User") %></p>
+        <p ><%="Hello "+session.getAttribute("User") %></p>
+        </div>
+        <hr>
+        </div>
+        
+        <div class=left border=1>
+        <table cellpadding="20" rowspan="20">
+        <tr>
+        <img alt="popcorn" src="./css/popcorn.jpg" width =100%>
+        </tr>
+        <tr><b><span style="text-decoration: blink">$2 popocorn</b></span></tr>
+        <br>
+        <br>
+        <tr>
+        <img alt="sliders" src="./css/sliders.jpg" width =100%>
+        </tr>
+        <tr><b>$5 slider combo</b></tr>
+        <br>
+        <br>
+        <tr>
+        <img alt="drinks" src="./css/drinks.jpg" width =100%>
+        </tr>
+        <tr><b>$1.5 cold drink</b></tr>
+        </table>
+        <vl>
+		</div>
               <section id="seats">
-              <hr>
+              
+              <div class=right>
               <table style=margin-left:100px>
               
               <%
@@ -52,9 +80,11 @@ else{
 %>
               
 			</table>	  	  
+			</div>
               </section>
     </div>
 </center>
 </FORM>
+</div>
 </body>
 </html>
