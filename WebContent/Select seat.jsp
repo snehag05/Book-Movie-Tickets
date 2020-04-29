@@ -56,14 +56,21 @@ if(seats == null){
 }   
 else{
     for(int index = 0; index < seats.size(); index ++){
+    	
     out.println("<tr>");	
 	//out.println("<td>"+seats.get(index)+"</td>");
+	if(seats.get(index).isBooked()==true)
+	{
 	%>
-	
-	<input id="<%=seats.get(index).getSeat_no() %>" name="selected_seats" class="seat-select" type="checkbox" value="<%=seats.get(index).getSeat_no() %>" name="seat[]"  />
+	<input id="<%=seats.get(index).getSeat_no() %>" name="selected_seats" class="seat-select" type="checkbox"  background-color=red value="<%=seats.get(index).getSeat_no() %>" disabled = true  checked />
+	<%}
+	else{
+		%>
+	<input id="<%=seats.get(index).getSeat_no() %>" name="selected_seats" class="seat-select" type="checkbox" value="<%=seats.get(index).getSeat_no() %>"  />
+	<%} %>
 	<label for="<%=seats.get(index).getSeat_no() %>" class="seat"><%=seats.get(index).getSeat_no() %></label>
-	
 	<%
+	
 	if(index==9 || index ==19 || index==29  )
 	{
 		out.println("<br/><br/><br/><br/>");
@@ -79,7 +86,8 @@ else{
       
 %>
               
-			</table>	  	  
+			</table>
+			<input type="submit" value="Submit">	  	  
 			</div>
               </section>
     </div>

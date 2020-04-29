@@ -38,13 +38,19 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("User", user);
 		System.out.println("Username is :" + user.getUsername());
 		System.out.println("Password is :" + user.getPassword());
-		db.login(user.getUsername(), user.getPassword());
-		
+		if(db.login(user.getUsername(), user.getPassword(),session)==true)
+		{
 		ArrayList<MovieDetails> movies = db.loadMovies(session); 
 		session.setAttribute("Movies", movies);
+		System.out.println(session.getAttribute("user_id"));
 		System.out.println(session.getAttribute("Movies"));
 		response.sendRedirect(".//Movies.jsp");
 		
+		}
+		else
+		{
+			System.out.println("try again!");
+		}
 		
 	}
 }

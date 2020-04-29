@@ -46,7 +46,17 @@ table{
     cellpadding:10px;
 }
 
+.booked {
+    display: none;
+    background: white;
+    cellpadding:10px;
+}
+
 .seat-select:checked+.seat {
+    background: pink;
+}
+
+.seat-select:disabled+.seat {
     background: gray;
 }
 .main
