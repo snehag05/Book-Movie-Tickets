@@ -7,7 +7,7 @@
         <HTML>
 
         <HEAD>
-            <TITLE>Now showing...</TITLE>
+            <TITLE>Now showing</TITLE>
             <META NAME="keywords" CONTENT="JSP,expressions,JavaServer Pages,servlets">
             <META NAME="description" CONTENT="A quick example of JSP expressions.">
             <meta charset="UTF-8">
@@ -17,12 +17,17 @@
         </HEAD>
 		
         <BODY>
+           <center>
+        <div class=top>
+    <div class="title">
+          <h1>This week on screen</h1>
+        <p ><%="Hello "+session.getAttribute("User") %></p>
+        </div>
+        <hr>
+        </div>
             <form action=MoviesServlet METHOD="POST">
-                <center>
-                    <div class="title">
-                        <h1>This week on screen</h1>
-                    </div>
-                    <hr>
+             
+                                      
                     <table cellpadding="10">
                         <div class="gallery">
 <%
@@ -32,17 +37,22 @@ if(movies == null){
     out.println("Opps! Something went wrong.<br/>");
 }   
 else{
-	out.println( "<tr><td><b>Movie Name</b></td><td><b>Price</b></td><tr>");
+	out.println( "<tr><th>Movie Name</th><th><b></b></th><th><b>Price</b></th><th>Trailer</th><th></th><tr>");
     for(int index = 0; index < movies.size(); index ++){
-
     	out.println( "<tr>");
-            out.println("<td>"+movies.get(index).getMovieTitle()+"</td>");
-            out.println("<td>"+movies.get(index).getPrice()+"</td>"); 
+        out.println("<td>"+movies.get(index).getMovieTitle()+"</td>");
 %>
-  <td><img src="<%=movies.get(index).getImage()%>" width="50" height="50"/></td>
-  <td><button class="button" type="submit" name ="book" value="<%=movies.get(index).getMovie_id()%>">Book ticket</button></td>          
-  <td><iframe width="150" height="70" src="<%=movies.get(index).getTrailer() %>
+<td><img src="<%=movies.get(index).getImage()%>" width="250" /></td>
+    	
+  <%  	
+    
+            out.println("<td>$"+movies.get(index).getPrice()+"</td>"); 
+%>
+  
+  <td><iframe width="200" height="100"  src="<%=movies.get(index).getTrailer() %>
            " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+  <td><button class="button" type="submit" name ="book" value="<%=movies.get(index).getMovie_id()%>">Book ticket</button></td>          
+  
 <%
     }
 }

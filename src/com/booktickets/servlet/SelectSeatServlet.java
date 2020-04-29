@@ -32,6 +32,7 @@ public class SelectSeatServlet extends HttpServlet{
 			System.out.println(seats[i]);
 		DBConnection db=new DBConnection();
 		db.transaction(session, seats);
+		//response.sendRedirect("/");
 	}
 	
 }

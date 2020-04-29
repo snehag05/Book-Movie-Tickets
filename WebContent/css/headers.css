@@ -8,8 +8,19 @@ body
 	font-family:"Candara";
 	background-color:#e0d4a4;
 }
-button {font-family: 'Candara'; font-size: 15px;
-color:black;} 
+ 
+button{
+		font-family: 'Candara'; 
+		font-size: 15px;
+        width: 150px;
+        text-align: center;
+        padding: 8px 0px;
+        border: none;
+        background-color: #d3d3d3;
+        border-radius: 5px;
+        background-color: #4690fb;
+        color: #fff;
+}
 * {
     margin: 0;
     padding: 0;
@@ -107,4 +118,11 @@ blink, .blink {
 	background-color:white;
 
  }
- 
+ th, td { 
+ border:1px solid black; 
+                width:250px; 
+                text-align:center; 
+               
+                padding:5px 
+              
+            } 
