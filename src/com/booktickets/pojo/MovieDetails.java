@@ -6,6 +6,7 @@ public class MovieDetails {
 	int screen_no;
 	String slot;
 	int price;
+	String date;
 	String image;
 	String trailer;
 	public String getImage() {
@@ -32,7 +33,7 @@ public class MovieDetails {
 	}
 
 //parameterized constructor
-	public MovieDetails(int movie_id, String movieTitle, int screen_no,String slot, int price, String trailer, String image) {
+	public MovieDetails(int movie_id, String movieTitle, String date, int screen_no,String slot, int price, String trailer, String image) {
 		this.movie_id = movie_id;
 		this.movieTitle = movieTitle;
 		this.screen_no = screen_no;

@@ -87,11 +87,12 @@ else{
 %>
               
 			</table>
-			<input type="submit" value="Submit">	  	  
+				  	  
 			</div>
-              </section>
+      </section>
     </div>
 </center>
+<center><button class="button" type="submit">Continue</center>
 </FORM>
 </div>
 </body>

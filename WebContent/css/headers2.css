@@ -49,6 +49,7 @@ p {
 
 table {
 	margin-left: 20% x;
+	background-color: white;
 }
 
 .seat-select {
@@ -109,8 +110,8 @@ blink, .blink {
 }
 
 th, td {
-	border: 1px solid black;
-	width: 250px;
-	text-align: center;
+	
+	width: 200px;
+	text-align: right;
 	padding: 5px
 }

@@ -36,8 +36,11 @@ public class MoviesServlet extends HttpServlet{
 		session.setAttribute("movie_id",movie_id);
 		DBConnection db= new DBConnection();
 		System.out.println(db.loadScreens(session));
+		db.getMovieName( session);
+		System.out.println(session.getAttribute("movie_name"));
+		//session.setAttribute("movie_name",movie_name);
 		//session.setAttribute("seats",db.loadScreens(session));
-		response.sendRedirect(".//Select seat.jsp");
+		response.sendRedirect(".//Select_seat.jsp");
 		
 				}
 

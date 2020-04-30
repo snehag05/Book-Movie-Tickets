@@ -32,7 +32,21 @@ public class SelectSeatServlet extends HttpServlet{
 			System.out.println(seats[i]);
 		DBConnection db=new DBConnection();
 		db.transaction(session, seats);
-		//response.sendRedirect("/");
+		String seat_list="";
+		for(int i=0;i<seats.length;i++)
+		{
+			if(i==(seats.length-1))
+			{
+			seat_list=seat_list+seats[i]+"";
+			}
+			else {
+				seat_list=seat_list+seats[i]+" ,";
+			}
+		}
+		session.setAttribute("current_seats", seat_list);
+		
+		session.setAttribute("number_of_seats", seats.length);
+		response.sendRedirect(".//Booking.jsp");
 	}
 	
 }

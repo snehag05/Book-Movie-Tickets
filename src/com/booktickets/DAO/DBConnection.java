@@ -86,11 +86,12 @@ public class DBConnection {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM MOVIE_DETAILS;");
 			while (rs.next()) {
-				arraylist.add(new MovieDetails(rs.getInt("MOVIE_ID"), rs.getString("MOVIETITLE"),
+				arraylist.add(new MovieDetails(rs.getInt("MOVIE_ID"), rs.getString("MOVIETITLE"), rs.getString("DATE"),
 						rs.getInt("SCREEN_NO"), rs.getString("SLOT"), rs.getInt("PRICE"), rs.getString("TRAILER"),
 						rs.getString("IMAGE")));
 				session.setAttribute("slot", rs.getString("SLOT"));
 				session.setAttribute("price", rs.getInt("PRICE"));
+				session.setAttribute("date", rs.getString("DATE"));
 			}
 
 			session.setAttribute("Movies", arraylist);
@@ -145,7 +146,11 @@ public class DBConnection {
 						+ session.getAttribute("user_id") + "','" + session.getAttribute("slot") + "','"
 						+ session.getAttribute("movie_id") + "','" + session.getAttribute("scrren_no") + "','"
 						+ seats[i] + "','" + session.getAttribute("price") + "');";
-
+				System.out.println("UPDATE SCREEN_DETAILS SET BOOKED =1 WHERE SCREEN_NO ="+session.getAttribute("scrren_no") 
+				+" AND SEAT_NO = '"+seats[i] +"' AND SLOT =  '"+session.getAttribute("slot")+"';");
+				stmt.execute("UPDATE SCREEN_DETAILS SET BOOKED =1 WHERE SCREEN_NO ="+session.getAttribute("scrren_no") 
+				+" AND SEAT_NO = '"+seats[i] +"' AND SLOT =  '"+session.getAttribute("slot")+"';");
+				
 				System.out.println(query);
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 				preparedStmt.execute();
@@ -154,7 +159,35 @@ public class DBConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 
+	}
+	
+	public void getMovieName(HttpSession session)
+	{
+		String movie_name=null;
+		try {
+			stmt = con.createStatement();
+			
+			ResultSet rs = stmt.executeQuery("select MOVIETITLE from movie_details where MOVIE_ID ="+session.getAttribute("movie_id"));
+			System.out.println(rs);
+			System.out.println("select MOVIETITLE from movie_details where MOVIE_ID ="+session.getAttribute("movie_id"));
+			
+			while(rs.next())
+			{
+				movie_name =rs.getString("MOVIETITLE");
+			}
+			//String movie_name= rs.getString("MOVIETITLE");
+			System.out.println(movie_name);
+			session.setAttribute("movie_name", movie_name);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.err.println(e.getMessage());
+		}
+		
+		
 	}
 
 }
