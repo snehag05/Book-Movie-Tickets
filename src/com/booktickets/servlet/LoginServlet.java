@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("Movies", movies);
 		System.out.println(session.getAttribute("user_id"));
 		System.out.println(session.getAttribute("Movies"));
-		response.sendRedirect(".//Movies.jsp");
+		response.sendRedirect("./Movies.jsp");
 		
 		}
 		else

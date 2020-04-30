@@ -40,7 +40,7 @@ public class MoviesServlet extends HttpServlet{
 		System.out.println(session.getAttribute("movie_name"));
 		//session.setAttribute("movie_name",movie_name);
 		//session.setAttribute("seats",db.loadScreens(session));
-		response.sendRedirect(".//Select_seat.jsp");
+		response.sendRedirect("./SelectSeat.jsp");
 		
 				}
 

@@ -129,7 +129,7 @@ public class DBConnection {
 
 	}
 
-	public void transaction(HttpSession session, String[] seats) {
+	public synchronized void  transaction(HttpSession session, String[] seats) {
 
 		try {
 			stmt = con.createStatement();
@@ -142,13 +142,13 @@ public class DBConnection {
 
 			for (int i = 0; i < seats.length; i++) {
 				String query = "INSERT INTO `booking_details`(`TRANSACTION_ID`, `USER_ID`,  `SLOT`, "
-						+ "`MOVIE_ID`, `SCREEN_NO`, `SEAT_NO`, `TOTAL`) VALUES ('" + (transaction_id++) + "','"
+						+ "`MOVIE_ID`, `SCREEN_NO`, `SEAT_NO`, `TOTAL`, `INSERTED_ON`) VALUES ('" + (transaction_id++) + "','"
 						+ session.getAttribute("user_id") + "','" + session.getAttribute("slot") + "','"
 						+ session.getAttribute("movie_id") + "','" + session.getAttribute("scrren_no") + "','"
-						+ seats[i] + "','" + session.getAttribute("price") + "');";
-				System.out.println("UPDATE SCREEN_DETAILS SET BOOKED =1 WHERE SCREEN_NO ="+session.getAttribute("scrren_no") 
+						+ seats[i] + "','" + session.getAttribute("price") + "',SYSDATE());";
+				System.out.println("UPDATE SCREEN_DETAILS SET BOOKED =1, INSERTED_ON = SYSDATE() WHERE SCREEN_NO ="+session.getAttribute("scrren_no") 
 				+" AND SEAT_NO = '"+seats[i] +"' AND SLOT =  '"+session.getAttribute("slot")+"';");
-				stmt.execute("UPDATE SCREEN_DETAILS SET BOOKED =1 WHERE SCREEN_NO ="+session.getAttribute("scrren_no") 
+				stmt.execute("UPDATE SCREEN_DETAILS SET BOOKED =1, UPDATED_ON = SYSDATE() WHERE SCREEN_NO ="+session.getAttribute("scrren_no") 
 				+" AND SEAT_NO = '"+seats[i] +"' AND SLOT =  '"+session.getAttribute("slot")+"';");
 				
 				System.out.println(query);
