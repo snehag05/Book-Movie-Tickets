@@ -111,14 +111,15 @@ blink, .blink {
 }
 
 th, td {
-	border: 1px;
-	width: 250px;
+	
+	
 	text-align: center;
 	padding: 5px
 }
 
 tr
 {
+	
 	text-align: center;
 }
 

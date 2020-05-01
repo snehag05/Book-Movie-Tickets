@@ -43,9 +43,11 @@
 <hr width=100%>
 				<section id="seats">
 <FORM ACTION="SelectSeat" METHOD="POST">
+			<br><br>
 					<div class=right>
 					
 						<table style="margin-left: 100px">
+						
 						<tr> <img src="./css/screen.png" height=30 width=700 style="float: left;" ></tr>
 						<tr/>
 						<br><br>

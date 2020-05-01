@@ -46,7 +46,7 @@ public class SelectSeatServlet extends HttpServlet{
 		session.setAttribute("current_seats", seat_list);
 		
 		session.setAttribute("number_of_seats", seats.length);
-		response.sendRedirect("./Booking.jsp");
+		response.sendRedirect("./Confirmation.jsp");
 	}
 	
 }

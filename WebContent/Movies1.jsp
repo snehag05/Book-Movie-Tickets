@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="./css/headers.css">
-<LINK REL=STYLESHEET HREF="JSP-Styles.css" TYPE="text/css">
+
 </HEAD>
 
 <BODY>
@@ -28,9 +28,10 @@
 	<center>
 		<div class="top">
 			<div class="title">
-				<br> <img src="./css/BookTickets-Logo_S.png" height=100
+				<br> <img src="./css/Book-Ticket-Banner-1.png" width=100% height =85%
 					width=300></img>
 	</center>
+	
 	<div class="table1">
 		<table>
 
@@ -64,23 +65,23 @@
 							//	"<tr></tr><tr><th>Movie Name</th><th><b></b></th><th><b>Price</b></th><th>Trailer</th><th></th><tr>");
 						for (int index = 0; index < movies.size(); index++) {
 							out.println("<tr>");
-				
+							out.println("<td>" + movies.get(index).getMovieTitle() + "</td>");
 				%>
 
-				<td rowspan="2"><img src="<%=movies.get(index).getImage()%>" width="250" /></td>
+				<td><img src="<%=movies.get(index).getImage()%>" width="250" /></td>
 
 				<%
-				out.println("<tr><td>" + movies.get(index).getMovieTitle() + " $" + movies.get(index).getPrice() + "</td>");
-					
+					out.println("<td>$" + movies.get(index).getPrice() + "</td>");
 				%>
-	<td><button class="button" type="submit" name="book"
-						value="<%=movies.get(index).getMovie_id()%>">Book ticket</button></td>
-				<td><iframe width="300" height="100"
-						src="<%=movies.get(index).getTrailer()%>"
+
+				<td><iframe width="200" height="100"
+						src="<%=movies.get(index).getTrailer()%>
+           "
 						frameborder="0"
 						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen></iframe></td>
-				
+				<td><button class="button" type="submit" name="book"
+						value="<%=movies.get(index).getMovie_id()%>">Book ticket</button></td>
 
 				<%
 					}

@@ -6,7 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -89,9 +92,15 @@ public class DBConnection {
 				arraylist.add(new MovieDetails(rs.getInt("MOVIE_ID"), rs.getString("MOVIETITLE"), rs.getString("DATE"),
 						rs.getInt("SCREEN_NO"), rs.getString("SLOT"), rs.getInt("PRICE"), rs.getString("TRAILER"),
 						rs.getString("IMAGE")));
+				String movie_date=rs.getString("DATE");
+				DateFormat parser = new SimpleDateFormat("yyyy-MM-dd");  
+				Date date = (Date) parser.parse(movie_date);
+				DateFormat formatter = new SimpleDateFormat("MMM-dd-yyyy");
+				movie_date=formatter.format(date);
+				System.out.println(movie_date);
 				session.setAttribute("slot", rs.getString("SLOT"));
 				session.setAttribute("price", rs.getInt("PRICE"));
-				session.setAttribute("date", rs.getString("DATE"));
+				session.setAttribute("date", movie_date);
 			}
 
 			session.setAttribute("Movies", arraylist);
@@ -138,11 +147,12 @@ public class DBConnection {
 			int transaction_id = 0;
 			if (rs.next()) {
 				transaction_id = rs.getInt("MAX(TRANSACTION_ID)");
+				transaction_id=transaction_id+1;
 			}
 
 			for (int i = 0; i < seats.length; i++) {
 				String query = "INSERT INTO `booking_details`(`TRANSACTION_ID`, `USER_ID`,  `SLOT`, "
-						+ "`MOVIE_ID`, `SCREEN_NO`, `SEAT_NO`, `TOTAL`, `INSERTED_ON`) VALUES ('" + (transaction_id++) + "','"
+						+ "`MOVIE_ID`, `SCREEN_NO`, `SEAT_NO`, `TOTAL`, `INSERTED_ON`) VALUES ('" + (transaction_id) + "','"
 						+ session.getAttribute("user_id") + "','" + session.getAttribute("slot") + "','"
 						+ session.getAttribute("movie_id") + "','" + session.getAttribute("scrren_no") + "','"
 						+ seats[i] + "','" + session.getAttribute("price") + "',SYSDATE());";
@@ -154,6 +164,7 @@ public class DBConnection {
 				System.out.println(query);
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 				preparedStmt.execute();
+				session.setAttribute("transaction_id", transaction_id);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -167,20 +178,24 @@ public class DBConnection {
 	public void getMovieName(HttpSession session)
 	{
 		String movie_name=null;
+		String movie_poster =null;
 		try {
 			stmt = con.createStatement();
 			
-			ResultSet rs = stmt.executeQuery("select MOVIETITLE from movie_details where MOVIE_ID ="+session.getAttribute("movie_id"));
+			ResultSet rs = stmt.executeQuery("select MOVIETITLE,IMAGE from movie_details where MOVIE_ID ="+session.getAttribute("movie_id"));
 			System.out.println(rs);
-			System.out.println("select MOVIETITLE from movie_details where MOVIE_ID ="+session.getAttribute("movie_id"));
+			System.out.println("select MOVIETITLE,IMAGE from movie_details where MOVIE_ID ="+session.getAttribute("movie_id"));
 			
 			while(rs.next())
 			{
 				movie_name =rs.getString("MOVIETITLE");
+				movie_poster=rs.getString("IMAGE");
 			}
 			//String movie_name= rs.getString("MOVIETITLE");
 			System.out.println(movie_name);
+			session.setAttribute("movie_poster", movie_poster);
 			session.setAttribute("movie_name", movie_name);
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
