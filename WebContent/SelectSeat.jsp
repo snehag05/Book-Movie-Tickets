@@ -24,12 +24,12 @@
     <div class="title">
     <br>
   <center>
-          <img src="./css/BookTickets-Logo_S.png" height=100 width =300></imag> </center>
+          <img src="./css/Book-Ticket-Banner-1.png" height=103 width =100%></imag> </center>
         <div class="table1">
         <table>
         
         <tr>
-        <td><p><%="Hello "+session.getAttribute("User")+"\t" %></p>
+        <td><p><u><%="Hello "+session.getAttribute("User")+"\t" %></u></p>
         </td>
          <td><form action="Logout" method="post">    <button class="button" type="submit">logout</button> </form></td>
          </tr>
@@ -40,9 +40,11 @@
         </div>
         
 <center>
+<hr width=100%>
 				<section id="seats">
 <FORM ACTION="SelectSeat" METHOD="POST">
 					<div class=right>
+					
 						<table style="margin-left: 100px">
 						<tr> <img src="./css/screen.png" height=30 width=700 style="float: left;" ></tr>
 						<tr/>
@@ -96,9 +98,9 @@
 	</FORM>
 	</div>
 	<div >
-	<br><br><hr>
+	<br><hr>
 <center>
-<table >
+<!-- <table >
 
 <tr>
 		<td><img alt="popcorn" src="./css/popcorn.jpg" width=150px> </td>
@@ -110,7 +112,7 @@
 		<td><b>$5 slider combo</b></td>
 		<td><b>$1.5 cold drink</b></td>							
 </tr>					
-</table>
+</table>  -->
 </center>
 </body>
 </html>

@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="./css/headers2.css">
 <meta charset="ISO-8859-1">
+
+
+
 <title>Thank you!</title>
 </head>
 <body>
@@ -22,7 +25,7 @@
         <hr>
         </div>
         <br><br>
-<table>
+<table id="table23">
 <tr>
 <td class=tdleft>User Name:</td>
 <td><%=session.getAttribute("User") %></td>
@@ -60,6 +63,13 @@
 
 
 </table>
+
+
+<a href="#" onclick="HTMLtoPDF()">Download PDF</a>
+
+<script src="js/jspdf.js"></script>
+<script src="js/jquery-2.1.3.js"></script>
+<script src="js/pdfFromHTML.js"></script>
 </center>
 </body>
 </html>
