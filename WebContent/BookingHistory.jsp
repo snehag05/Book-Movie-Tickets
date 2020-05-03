@@ -30,18 +30,20 @@
 				<table>
 
 					<tr>
-					
-						<td><form action="Logout" method="post">
-								<button class="button" type="submit">logout</button>
-							</form></td>
+						<td>
+							<button class="button" type="submit">
+								<a style="text-decoration: none; color: white;"
+									href="./Movies.jsp">Movies</a>
+							</button>
+						</td>
 						<td><form action="History" method="post">
 								<button class="button" type="submit">History</button>
 							</form></td>
-								<td>
-								<button class="button" type="submit"><a style="text-decoration:none; color:white;" href="./Movies.jsp" >Movies</a></button>
-							</td>
-								<td><p>
-								<u><%="Hello " + session.getAttribute("User") + "\t"%></u>
+						<td><form action="Logout" method="post">
+								<button class="button" type="submit">logout</button>
+							</form></td>
+						<td><p>
+								<i><%="Hello " + session.getAttribute("User") + " !\t"%></i>
 							</p></td>
 					</tr>
 				</table>
@@ -55,20 +57,20 @@
 			<center>
 
 				<div>
-
-					<h1 style="text-align: Center;">your past bookings.</h1>
-
-					<table style="background-color: #a21a00; cellpadding: 2px;">
+					<br>
+					<h2 style="text-align: Center;">Booking History</h2>
+					<br>
+					<table style="background-color: #a21a00; cellpadding: 2px; " border=1 >
 					<tr>
-					<td>Transaction ID</td>
-					<td>User</td>
-					<td>Movie Title</td>
-					<td>on Date</td>
-					<td>Screen</td>
-					<td>Slot</td>
-					<td>Seats</td>
-					<td>Total</td>
-					<td>Booked on</td>
+					<th>Transaction ID</th>
+					<!-- <th>User</th> -->
+					<th>Movie Title</th>
+					<th>on Date</th>
+					<th>Screen</th>
+					<th>Slot</th>
+					<th>Seats</th>
+					<th>Total</th>
+					<th>Booked on</th>
 									
 					</tr>
 					<%
@@ -86,7 +88,7 @@
 					%>
 
 					<td><%=history.get(index).getTransaction_id()%></td>
-					<td><%=history.get(index).getUser_name()%></td>
+					<!-- <td><%=history.get(index).getUser_name()%></td> -->
 					<td><%=history.get(index).getMovie_title()%></td>
 					<td><%=history.get(index).getMovie_date()%></td>
 					<td><%=history.get(index).getScreen_no()%></td>
@@ -105,10 +107,7 @@
 					</table>
 
 					<footer>
-						<p style="text-align: Center;">
-						<h2>Thank you!</h2>
-						</p>
-					</footer>
+									</footer>
 				</div>
 		</form>
 		</center>

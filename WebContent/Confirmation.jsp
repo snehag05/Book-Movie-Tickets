@@ -27,20 +27,21 @@
 			</center>
 			<div class="table1">
 				<table>
-
 					<tr>
-						
+						<td>
+							<button class="button" type="submit">
+								<a style="text-decoration: none; color: white;"
+									href="./Movies.jsp">Movies</a>
+							</button>
+						</td>
+						<td><form action="History" method="post">
+								<button class="button" type="submit">History</button>
+							</form></td>
 						<td><form action="Logout" method="post">
 								<button class="button" type="submit">logout</button>
 							</form></td>
-						<td><form action="History" method="post">
-								<button class="button" type="submit">History</button>
-						</form></td>
-								<td>
-								<button class="button" type="submit"><a style="text-decoration:none; color:white;" href="./Movies.jsp" >Movies</a></button>
-						</td>
 						<td><p>
-								<u><%="Hello " + session.getAttribute("User") + "\t"%></u>
+								<i><%="Hello " + session.getAttribute("User") + " !\t"%></i>
 							</p></td>
 					</tr>
 				</table>
@@ -75,8 +76,8 @@
 							</tr>
 							<tr>
 
-								<td><h2><%=session.getAttribute("movie_name")%></h2>
-									<br> <%=session.getAttribute("date")%><br> at: <%=session.getAttribute("slot")%>
+								<td><h2><%=session.getAttribute("movie_name")%></h2> <br>
+									<%=session.getAttribute("date")%><br> at: <%=session.getAttribute("slot")%>
 								</td>
 
 								<td></td>

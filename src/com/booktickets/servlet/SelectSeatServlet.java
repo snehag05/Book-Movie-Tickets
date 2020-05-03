@@ -35,13 +35,15 @@ public class SelectSeatServlet extends HttpServlet{
 			response.sendRedirect("./SelectSeat.jsp");	
 		}
 		else
-		{DBConnection db=new DBConnection();
-		db.transaction(session, seats);
+		{
 		
 		session.setAttribute("current_seats", new ScreenDetails().seatArraytoString(seats));
-		
 		session.setAttribute("number_of_seats", seats.length);
+		DBConnection db=new DBConnection();
+		db.transaction(session, seats);
 		response.sendRedirect("./Confirmation.jsp");
+		
+		
 		}
 	}
 	

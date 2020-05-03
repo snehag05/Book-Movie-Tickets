@@ -31,18 +31,20 @@
 				<table>
 
 					<tr>
-						
-						<td><form action="Logout" method="post">
-								<button class="button" type="submit">logout</button>
-							</form></td>
+						<td>
+							<button class="button" type="submit">
+								<a style="text-decoration: none; color: white;"
+									href="./Movies.jsp">Movies</a>
+							</button>
+						</td>
 						<td><form action="History" method="post">
 								<button class="button" type="submit">History</button>
 							</form></td>
-							<td>
-								<button class="button" type="submit"><a style="text-decoration:none; color:white;" href="./Movies.jsp" >Movies</a></button>
-							</td>
-							<td><p>
-								<u><%="Hello " + session.getAttribute("User") + "\t"%></u>
+						<td><form action="Logout" method="post">
+								<button class="button" type="submit">logout</button>
+							</form></td>
+						<td><p>
+								<i><%="Hello " + session.getAttribute("User") + " !\t"%></i>
 							</p></td>
 					</tr>
 				</table>

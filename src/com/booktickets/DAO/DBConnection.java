@@ -87,11 +87,9 @@ public class DBConnection {
 
 		try {
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("SELECT * FROM MOVIE_DETAILS;");
+			rs = stmt.executeQuery("SELECT * FROM MOVIE_DETAILS ORDER BY 1 DESC;");
 			while (rs.next()) {
-				arraylist.add(new MovieDetails(rs.getInt("MOVIE_ID"), rs.getString("MOVIETITLE"), rs.getString("DATE"),
-						rs.getInt("SCREEN_NO"), rs.getString("SLOT"), rs.getInt("PRICE"), rs.getString("TRAILER"),
-						rs.getString("IMAGE")));
+				
 				String movie_date = rs.getString("DATE");
 				DateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
 				Date date = (Date) parser.parse(movie_date);
@@ -101,6 +99,9 @@ public class DBConnection {
 				session.setAttribute("slot", rs.getString("SLOT"));
 				session.setAttribute("price", rs.getInt("PRICE"));
 				session.setAttribute("date", movie_date);
+				arraylist.add(new MovieDetails(rs.getInt("MOVIE_ID"), rs.getString("MOVIETITLE"), movie_date,
+						rs.getInt("SCREEN_NO"), rs.getString("SLOT"), rs.getInt("PRICE"), rs.getString("TRAILER"),
+						rs.getString("IMAGE")));
 			}
 
 			session.setAttribute("Movies", arraylist);
@@ -149,8 +150,8 @@ public class DBConnection {
 				transaction_id = rs.getInt("MAX(TRANSACTION_ID)");
 				transaction_id = transaction_id + 1;
 			}
-
-			for (int i = 0; i < seats.length; i++) {
+			int i ;
+			for ( i = 0; i < seats.length; i++) {
 
 				System.out.println("UPDATE SCREEN_DETAILS SET BOOKED =1, INSERTED_ON = SYSDATE() WHERE SCREEN_NO ="
 						+ session.getAttribute("scrren_no") + " AND SEAT_NO = '" + seats[i] + "' AND SLOT =  '"
@@ -168,7 +169,7 @@ public class DBConnection {
 					+ session.getAttribute("user_id") + "','" + session.getAttribute("slot") + "','"
 					+ session.getAttribute("m_date") + "','" + session.getAttribute("movie_id") + "','"
 					+ session.getAttribute("scrren_no") + "','" + (new ScreenDetails().seatArraytoString(seats)) + "','"
-					+ (int)session.getAttribute("price")*seats.length + "',SYSDATE());";
+					+ (int)session.getAttribute("price")* (int) session.getAttribute("number_of_seats") + "',SYSDATE());";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			preparedStmt.execute();
 

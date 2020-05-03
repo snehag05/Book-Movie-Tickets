@@ -36,15 +36,16 @@
 		<table>
 
 			<tr>
-				<td><p>
-						<u><%="Hello " + session.getAttribute("User") + "\t"%></u>
-					</p>
-				<td><form action="Logout" method="post">
-						<button class="button" type="submit">logout</button>
-					</form></td>
 				<td><form action="History" method="post">
 						<button class="button" type="submit">History</button>
 					</form></td>
+				<td><form action="Logout" method="post">
+						<button class="button" type="submit">logout</button>
+					</form></td>
+				
+				<td><p>
+						<i><%="Hello " + session.getAttribute("User") + " !\t"%></i>
+					</p></td>	
 			</tr>
 		</table>
 
@@ -73,7 +74,7 @@
 								out.println("<tr>");
 					%>
 
-					<td rowspan="3"><img src="<%=movies.get(index).getImage()%>"
+					<td rowspan="4"><img src="<%=movies.get(index).getImage()%>"
 						width="300" height="180" /></td>
 					<td><iframe width="200" height="100"
 							src="<%=movies.get(index).getTrailer()%>" frameborder="0"
@@ -83,6 +84,7 @@
 					<%
 						out.println("<tr><td>" + movies.get(index).getMovieTitle() + " $" + movies.get(index).getPrice()
 										+ "</td></tr>");
+					out.println("<tr><td> <b> on </b> <u>"+movies.get(index).getDate() +"</u><b> at </b> <u>" +movies.get(index).getSlot()+"</u></td></tr>");
 					%>
 					<tr>
 						<td><button class="button" type="submit" name="book"
