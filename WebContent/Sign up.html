@@ -6,7 +6,7 @@
     <title>Sign up</title>
     <link rel="stylesheet" type="text/css" href="./css/global.css">
     <script> 
-          
+    //document.getElementById("myForm").onsubmit = function() {checkPassword()};
         // Function to check Whether both passwords 
         // is same or not. 
         function checkPassword(form) { 
@@ -36,12 +36,13 @@
     </script> 
 </head>
 <body>
-<FORM ACTION="SignupServlet" METHOD="POST">
+<!-- onSubmit = "return checkPassword(this)" -->
+<FORM  id="myForm" ACTION="SignupServlet" METHOD="POST" onSubmit = "return checkPassword(this);">
     <div class="slider">
         <div class="load">
 
         </div>
-        <div class="form-container" onSubmit = "return checkPassword(this)">
+        <div class="form-container" >
             <ul class="list">
                 <li><h2>Sign up</h2></li>
                 <li> <input type="text" name="username" placeholder="Enter your username" required></li>
@@ -49,7 +50,7 @@
                 <li> <input type="tel" name="phone" placeholder="Enter your phone number"  maxlength="10" required></li>
                 <li> <input type="password" name="password" placeholder="Enter your password" required></li>
                 <li> <input type="password" name="password2" placeholder="Confirm your password" required></li>
-                <li> <button class="button" type="submit" name="Registration"><a href="home.html">Sign up</a></button></li>
+                <li> <button class="button" type="submit" name="Registration">	Sign up</a></button></li>
             </ul>
         </div>
     </div>

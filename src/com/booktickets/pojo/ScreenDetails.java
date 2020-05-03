@@ -53,4 +53,21 @@ public class ScreenDetails {
 		return "ScreenDetails [screen_no=" + screen_no + ", seat_no=" + seat_no + ", booked=" + booked ;
 	}
 	
+	public String seatArraytoString(String [] seats)
+	{
+		String seat_list="";
+		for(int i=0;i<seats.length;i++)
+		{
+			if(i==(seats.length-1))
+			{
+			seat_list=seat_list+seats[i]+"";
+			}
+			else {
+				seat_list=seat_list+seats[i]+", ";
+			}
+		}
+		
+		return seat_list;
+	}
+	
 }

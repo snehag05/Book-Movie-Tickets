@@ -31,72 +31,79 @@
 				<br> <img src="./css/Book-Ticket-Banner-1.png" height=100
 					width=100%></img>
 	</center>
+	<br>
 	<div class="table1">
 		<table>
 
 			<tr>
-				<td><p><u><%="Hello "+session.getAttribute("User")+"\t" %></u></p>
+				<td><p>
+						<u><%="Hello " + session.getAttribute("User") + "\t"%></u>
+					</p>
 				<td><form action="Logout" method="post">
 						<button class="button" type="submit">logout</button>
+					</form></td>
+				<td><form action="History" method="post">
+						<button class="button" type="submit">History</button>
 					</form></td>
 			</tr>
 		</table>
 
 	</div>
-</div>
-</div>
+	</div>
+	</div>
 
 	<form action=MoviesServlet METHOD="POST">
 		<div class="gallery">
-<center>
+			<center>
 
-		<table cellpadding="10" border=1 width=60%>
-		
-		
-	<hr width=100%>
-	
-				<%
-					ArrayList<MovieDetails> movies = (ArrayList<MovieDetails>) session.getAttribute("Movies");
+				<table cellpadding="10" border=1 width=60% cellspacing=7>
 
-					if (movies == null) {
-						out.println("Opps! Something went wrong.<br/>");
-					} else {
-						out.println("<tr>");
-						
-							
-						for (int index = 0; index < movies.size(); index++) {
+
+					<hr width=100%>
+
+					<%
+						ArrayList<MovieDetails> movies = (ArrayList<MovieDetails>) session.getAttribute("Movies");
+
+						if (movies == null) {
+							out.println("Opps! Something went wrong.<br/>");
+						} else {
 							out.println("<tr>");
-				
-				%>
 
-				 <td rowspan="3"><img src="<%=movies.get(index).getImage()%>" width="300" height="200" /></td>
-				<td><iframe width="200" height="100"
-						src="<%=movies.get(index).getTrailer()%>"
-						frameborder="0"
-						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen></iframe></td></tr>	
-				<%
-				out.println("<tr><td>" + movies.get(index).getMovieTitle() + " $" + movies.get(index).getPrice() + "</td></tr>");
-					
-				%>
-	<tr><td><button class="button" type="submit" name="book"
-						value="<%=movies.get(index).getMovie_id()%>">Book ticket</button></td>
-						</tr><tr height=30 ></tr> <tr></tr> <tr></tr> <tr></tr>  
-				<tr></tr> <tr></tr> <tr></tr> <tr></tr>
-				
+							for (int index = 0; index < movies.size(); index++) {
+								out.println("<tr>");
+					%>
 
-				<%
-					}
-					}
-				%>
-				
-		</tr>	
-		</table>
-		</center>
-	</div>
-		
+					<td rowspan="3"><img src="<%=movies.get(index).getImage()%>"
+						width="300" height="180" /></td>
+					<td><iframe width="200" height="100"
+							src="<%=movies.get(index).getTrailer()%>" frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe></td>
+					</tr>
+					<%
+						out.println("<tr><td>" + movies.get(index).getMovieTitle() + " $" + movies.get(index).getPrice()
+										+ "</td></tr>");
+					%>
+					<tr>
+						<td><button class="button" type="submit" name="book"
+								value="<%=movies.get(index).getMovie_id()%>">Book
+								ticket</button></td>
+					</tr>
+					<tr height=30></tr>
+
+
+					<%
+						}
+						}
+					%>
+
+					</tr>
+				</table>
+			</center>
+		</div>
+
 	</form>
-</center>
+	</center>
 </BODY>
 
 </HTML>

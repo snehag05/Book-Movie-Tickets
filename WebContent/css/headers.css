@@ -62,7 +62,7 @@ p {
 }
 
 .seat-select:checked+.seat {
-	background: gray;
+	background: #094994;
 }
 
 .seat-select:disabled+.seat {
@@ -92,8 +92,7 @@ p {
 
 .right {
 	margin-left: 25%;
-	
-	width: 100%;
+	width: 80%;
 	height: 80%;
 	background-color: yello;
 	

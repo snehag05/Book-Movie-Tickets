@@ -32,12 +32,12 @@ public class MoviesServlet extends HttpServlet{
 		
 		HttpSession session=request.getSession();
 		int movie_id = Integer.parseInt(request.getParameter("book"));
-		System.out.println(request.getParameter("book"));
+		request.getParameter("book");
 		session.setAttribute("movie_id",movie_id);
 		DBConnection db= new DBConnection();
-		System.out.println(db.loadScreens(session));
+		db.loadScreens(session);
 		db.getMovieName( session);
-		System.out.println(session.getAttribute("movie_name"));
+		session.getAttribute("movie_name");
 		//session.setAttribute("movie_name",movie_name);
 		//session.setAttribute("seats",db.loadScreens(session));
 		response.sendRedirect("./SelectSeat.jsp");
