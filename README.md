@@ -1,4 +1,4 @@
-# Book-Movie-Tickets
+# Summary
 This is a small project for movie ticket booking using servlets for course CIS 4660 Applications Development using JAVA.
 
 # Getting Started
