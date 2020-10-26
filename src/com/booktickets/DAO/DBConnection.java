@@ -38,12 +38,12 @@ public class DBConnection {
 			rs = stmt.executeQuery(
 					"SELECT * FROM USER WHERE USERNAME ='" + username + "'AND PASSWORD='" + password + "';");
 			if (rs.next() != false) {
-				System.out.println("login successful!");
+				//System.out.println("login successful!");
 				session.setAttribute("user_id", rs.getInt("USER_ID"));
 
 				return true;
 			} else {
-				System.out.println("Incorrect username or passsword");
+				//System.out.println("Incorrect username or passsword");
 				return false;
 			}
 
@@ -64,7 +64,7 @@ public class DBConnection {
 			if (rs.next() != false) {
 				user_id = rs.getInt("MAX(USER_ID)");
 			} else {
-				System.out.println("Oops! something went wrong.");
+				//System.out.println("Oops! something went wrong.");
 
 			}
 
@@ -144,7 +144,7 @@ public class DBConnection {
 		try {
 			stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT MAX(TRANSACTION_ID) FROM booking_details;");
-			System.out.println("SELECT MAX(TRANSACTION_ID) FROM booking_details;");
+			//System.out.println("SELECT MAX(TRANSACTION_ID) FROM booking_details;");
 			int transaction_id = 0;
 			if (rs.next()) {
 				transaction_id = rs.getInt("MAX(TRANSACTION_ID)");
@@ -153,12 +153,10 @@ public class DBConnection {
 			int i ;
 			for ( i = 0; i < seats.length; i++) {
 
-				System.out.println("UPDATE SCREEN_DETAILS SET BOOKED =1, INSERTED_ON = SYSDATE() WHERE SCREEN_NO ="
-						+ session.getAttribute("scrren_no") + " AND SEAT_NO = '" + seats[i] + "' AND SLOT =  '"
-						+ session.getAttribute("slot") + "';");
+				/*System.out.println("UPDATE SCREEN_DETAILS SET BOOKED =1, INSERTED_ON = SYSDATE() WHERE SCREEN_NO ="
+						+ session.getAttribute("scrren_no") + " AND SEAT_NO = '" + seats[i] + "';");*/
 				stmt.execute("UPDATE SCREEN_DETAILS SET BOOKED =1, UPDATED_ON = SYSDATE() WHERE SCREEN_NO ="
-						+ session.getAttribute("scrren_no") + " AND SEAT_NO = '" + seats[i] + "' AND SLOT =  '"
-						+ session.getAttribute("slot") + "';");
+						+ session.getAttribute("scrren_no") + " AND SEAT_NO = '" + seats[i] + "';");
 
 				// System.out.println(query);
 
@@ -189,9 +187,9 @@ public class DBConnection {
 
 			ResultSet rs = stmt.executeQuery("select MOVIETITLE,IMAGE,DATE from movie_details where MOVIE_ID ="
 					+ session.getAttribute("movie_id"));
-			System.out.println(rs);
-			System.out.println("select MOVIETITLE,IMAGE,DATE from movie_details where MOVIE_ID ="
-					+ session.getAttribute("movie_id"));
+			//System.out.println(rs);
+			//System.out.println("select MOVIETITLE,IMAGE,DATE from movie_details where MOVIE_ID ="
+				//	+ session.getAttribute("movie_id"));
 
 			while (rs.next()) {
 				movie_name = rs.getString("MOVIETITLE");
@@ -199,7 +197,7 @@ public class DBConnection {
 				m_date = rs.getString("DATE");
 			}
 			// String movie_name= rs.getString("MOVIETITLE");
-			System.out.println(movie_name);
+			//System.out.println(movie_name);
 			session.setAttribute("movie_poster", movie_poster);
 			session.setAttribute("movie_name", movie_name);
 			session.setAttribute("m_date", m_date);
@@ -223,7 +221,7 @@ public class DBConnection {
 		int total = 0;
 		String inserted_on = null;
 		ArrayList<History> arraylist = new ArrayList<History>();
-		System.out.println(session.getAttribute("user_id"));
+		//System.out.println(session.getAttribute("user_id"));
 		try {
 			stmt = con.createStatement();
 
