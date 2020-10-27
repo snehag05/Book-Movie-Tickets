@@ -18,4 +18,7 @@ Prerequisites
 
 
 # Authors
-Sneha G - https://github.com/snehag05
+<ul>
+<li> Sneha Gadade - <a href ="https://github.com/snehag05"> Sneha </a> </li>
+<li> Gloria Usanase - <a href ="https://github.com/GloriaU3"> Gloria </a> </li>
+</ul>
